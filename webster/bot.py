@@ -5,7 +5,7 @@ import telegram
 import telegram.ext
 
 from webster.plugins import amazon
-from webster.utils import scrapper, slug_utils, telegram_utils
+from webster.utils import scrapper, slug_utils, telegram_utils, full_width
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--token')
@@ -114,7 +114,7 @@ def list_amazon_listing_checker_jobs(bot: telegram.Bot,
     if jobs:
         message = ("Found these jobs running:\n\n" +
                    "\n".join(jobs) +
-                   "\nStop any of them with `/stop`")
+                   "\n\nStop any of them with `/stop`")
 
         bot.send_message(update.message.chat_id, message)
     else:
@@ -123,6 +123,12 @@ def list_amazon_listing_checker_jobs(bot: telegram.Bot,
 
 def waddup(bot: telegram.Bot, update: telegram.Update):
     bot.send_message(update.message.chat_id, "It's datboi!")
+
+
+def convert_full_width(bot: telegram.Bot, update: telegram.Update):
+    bot.send_message(
+        update.message.chat_id,
+        full_width.convert_normal_to_full_width(update.message.text))
 
 
 def error_handler(bot: telegram.Bot, update: telegram.Update, error):
@@ -151,6 +157,8 @@ def main():
             pass_chat_data=True))
     dispatch.add_handler(
         telegram.ext.CommandHandler("waddup", waddup))
+    dispatch.add_handler(
+        telegram.ext.CommandHandler("fullwidth", convert_full_width))
 
     dispatch.add_error_handler(error_handler)
 
