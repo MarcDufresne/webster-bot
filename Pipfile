@@ -1,0 +1,11 @@
+[requires]
+python_version = "3.6"
+
+[packages]
+beautifulsoup4 = "*"
+requests = "*"
+python-telegram-bot = "*"
+awesome-slugify = "*"
+
+[dev-packages]
+pytest = "*"

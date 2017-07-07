@@ -1,0 +1,62 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "a2f7bdf2c819cca5c72cf91b4657fdd1458cb4aa05419256e1c0fcb03301203d"
+        },
+        "requires": {
+            "python_version": "3.6"
+        },
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "awesome-slugify": {
+            "version": "==1.6.5"
+        },
+        "beautifulsoup4": {
+            "version": "==4.6.0"
+        },
+        "certifi": {
+            "version": "==2017.4.17"
+        },
+        "chardet": {
+            "version": "==3.0.4"
+        },
+        "future": {
+            "version": "==0.16.0"
+        },
+        "idna": {
+            "version": "==2.5"
+        },
+        "python-telegram-bot": {
+            "version": "==6.1.0"
+        },
+        "regex": {
+            "version": "==2017.06.23"
+        },
+        "requests": {
+            "version": "==2.18.1"
+        },
+        "unidecode": {
+            "version": "==0.04.21"
+        },
+        "urllib3": {
+            "version": "==1.21.1"
+        }
+    },
+    "develop": {
+        "py": {
+            "version": "==1.4.34"
+        },
+        "pytest": {
+            "version": "==3.1.3"
+        },
+        "setuptools": {
+            "version": "==36.0.1"
+        }
+    }
+}
