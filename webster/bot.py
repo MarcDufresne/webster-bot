@@ -125,10 +125,12 @@ def waddup(bot: telegram.Bot, update: telegram.Update):
     bot.send_message(update.message.chat_id, "It's datboi!")
 
 
-def convert_full_width(bot: telegram.Bot, update: telegram.Update):
-    bot.send_message(
-        update.message.chat_id,
-        full_width.convert_normal_to_full_width(update.message.text))
+def convert_full_width(bot: telegram.Bot, update: telegram.Update,
+                       args: List):
+    if args:
+        bot.send_message(
+            update.message.chat_id,
+            full_width.convert_normal_to_full_width(" ".join(args)))
 
 
 def error_handler(bot: telegram.Bot, update: telegram.Update, error):
@@ -158,7 +160,8 @@ def main():
     dispatch.add_handler(
         telegram.ext.CommandHandler("waddup", waddup))
     dispatch.add_handler(
-        telegram.ext.CommandHandler("fullwidth", convert_full_width))
+        telegram.ext.CommandHandler(
+            "fullwidth", convert_full_width, pass_args=True))
 
     dispatch.add_error_handler(error_handler)
 
